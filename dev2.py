@@ -99,4 +99,35 @@ def foi_derrotado(l):
     return True
 mapausu = cria_mapa(10)
 mapacomp = cria_mapa(10)
-frota = int(input(''))
+frota = int(input('Iniciando o Jogo!\n\nComputador está alocando os navios de guerra do país Austrália...\nComputador já está em posição de batalha!\n\n1: Brasil
+   1 cruzador
+   2 torpedeiro
+   1 destroyer
+   1 couracado
+   1 porta-avioes
+2: França
+   3 cruzador
+   1 porta-avioes
+   1 destroyer
+   1 submarino
+   1 couracado
+3: Austrália
+   1 couracado
+   3 cruzador
+   1 submarino
+   1 porta-avioes
+   1 torpedeiro
+4: Rússia
+   1 cruzador
+   1 porta-avioes
+   2 couracado
+   1 destroyer
+   1 submarino
+5: Japão
+   2 torpedeiro
+   1 cruzador
+   2 destroyer
+   1 couracado
+   1 submarino
+Qual o número da nação da sua frota? 
+'))
