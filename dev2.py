@@ -56,9 +56,9 @@ def string(l):
     return string
 def cria_mapa(n):
     l = []
-    for _ in range(n):
+    for a in range(n):
         l2 = []
-        for _ in range(n):
+        for b in range(n):
             l2.append(' ')
         l.append(l2)
     return l
