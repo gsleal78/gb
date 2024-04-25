@@ -16,7 +16,3 @@ def printa_string(l):
             string +=k
         string+='\n'
     return string
-
-espaco = cria_mapa(10)
-espaco [0][0] = "gui"
-print(printa_string(espaco))
