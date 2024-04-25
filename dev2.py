@@ -52,3 +52,4 @@ def foi_derrotado(l):
             if l[i][k]=='N':return False
     return True
 mapa = cria_mapa(10)
+sadb
