@@ -1,4 +1,5 @@
 from random import randint
+from random import choice
 import time
 d={'a':0, 'b':1, 'c':2, 'd':3, 'e':4, 'f':5, 'g':6, 'h':7, 'i':8, 'j':9}
 def string(l):
@@ -34,9 +35,9 @@ def posicao_suporta(m,n,l,c,o):
 def aloca_navios(m, l):
     for i in l:
         while True:
-            linha = random.randint(0, len(m) - 1)
-            coluna = random.randint(0, len(m[0]) - 1)
-            orientacao = random.choice(['h', 'v'])
+            linha = randint(0, len(m) - 1)
+            coluna = randint(0, len(m[0]) - 1)
+            orientacao = choice(['h', 'v'])
             if posicao_suporta(m, i, linha, coluna, orientacao):
                 break
         if orientacao == 'h':
@@ -52,4 +53,4 @@ def foi_derrotado(l):
             if l[i][k]=='N':return False
     return True
 mapa = cria_mapa(10)
-sadb
+
