@@ -51,14 +51,15 @@ PAISES =  {
     }
 }
 
-mensagem_inicial = """=====================================
+mensagem_inicial = """=======================================
 |                                     |
 |   Bem-vindo ao CAMPO DE GUERRA      |
 |                                     |
-=======================================
-Iniciando o Jogo!
-Computador está alocando os navios de guerra do país Rússia...
-Computador já está em posição de batalha!
+=======================================,
+Iniciando o Jogo!,
+Computador está alocando os navios de guerra do país Rússia...,
+Computador já está em posição de batalha!,
+Suas opções:,
 1: Brasil
    1 cruzador
    2 torpedeiro
@@ -90,6 +91,8 @@ Computador já está em posição de batalha!
    1 couracado
    1 submarino
 """
+
+mi = mensagem_inicial.split(",")
 
 #FUNÇÕES QUE VAMOS UTILIZAR 
 
@@ -153,6 +156,12 @@ mapausu = cria_mapa(10)
 mapacomp = cria_mapa(10)
 
 #JOGO EM SI 
-
-print(mensagem_inicial)
+i = 0 
+for s in mi: 
+    if i == 0: 
+        print(s)
+    else: 
+        time.sleep(1)
+        
+        print(s)
 escolhe_pais = input("Qual o número da nação da sua frota?")
