@@ -56,10 +56,10 @@ def string(l):
     return string
 def cria_mapa(n):
     l = []
-    l2 = []
-    for x in range(n):
-        l2.append(' ')
-    for x in range(n):
+    for _ in range(n):
+        l2 = []
+        for _ in range(n):
+            l2.append(' ')
         l.append(l2)
     return l
 def posicao_suporta(m,n,l,c,o):
