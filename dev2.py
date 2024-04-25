@@ -1,4 +1,13 @@
 from random import randint
+import time
+d={'a':0, 'b':1, 'c':2, 'd':3, 'e':4, 'f':5, 'g':6, 'h':7, 'i':8, 'j':9}
+def string(l):
+    string=''
+    for i in l:
+        for k in i:
+            string +=k
+        string+='\n'
+    return string
 def cria_mapa(n):
     l = []
     l2 = []
@@ -43,4 +52,3 @@ def foi_derrotado(l):
             if l[i][k]=='N':return False
     return True
 mapa = cria_mapa(10)
-print(mapa)
