@@ -2,6 +2,51 @@ from random import randint
 from random import choice
 import time
 d={'a':0, 'b':1, 'c':2, 'd':3, 'e':4, 'f':5, 'g':6, 'h':7, 'i':8, 'j':9}
+CONFIGURACAO = {
+    'destroyer': 3,
+    'porta-avioes': 5,
+    'submarino': 2,
+    'torpedeiro': 3,
+    'cruzador': 2,
+    'couracado': 4
+}
+PAISES =  {
+    'Brasil': {
+        'cruzador': 1,
+        'torpedeiro': 2,
+        'destroyer': 1,
+        'couracado': 1,
+        'porta-avioes': 1
+    }, 
+    'França': {
+        'cruzador': 3, 
+        'porta-avioes': 1, 
+        'destroyer': 1, 
+        'submarino': 1, 
+        'couracado': 1
+    },
+    'Austrália': {
+        'couracado': 1,
+        'cruzador': 3, 
+        'submarino': 1,
+        'porta-avioes': 1, 
+        'torpedeiro': 1
+    },
+    'Rússia': {
+        'cruzador': 1,
+        'porta-avioes': 1,
+        'couracado': 2,
+        'destroyer': 1,
+        'submarino': 1
+    },
+    'Japão': {
+        'torpedeiro': 2,
+        'cruzador': 1,
+        'destroyer': 2,
+        'couracado': 1,
+        'submarino': 1
+    }
+}
 def string(l):
     string=''
     for i in l:
@@ -52,5 +97,6 @@ def foi_derrotado(l):
         for k in range(len(l[i])):
             if l[i][k]=='N':return False
     return True
-mapa = cria_mapa(10)
-
+mapausu = cria_mapa(10)
+mapacomp = cria_mapa(10)
+frota = int(input(''))
