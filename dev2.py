@@ -1,6 +1,9 @@
 from random import randint
 from random import choice
 import time
+
+#DEFINIÇÕES NECESSÁRIAS 
+
 d={'a':0, 'b':1, 'c':2, 'd':3, 'e':4, 'f':5, 'g':6, 'h':7, 'i':8, 'j':9}
 CONFIGURACAO = {
     'destroyer': 3,
@@ -47,6 +50,49 @@ PAISES =  {
         'submarino': 1
     }
 }
+
+mensagem_inicial = """=====================================
+|                                     |
+|   Bem-vindo ao CAMPO DE GUERRA      |
+|                                     |
+=======================================
+Iniciando o Jogo!
+Computador está alocando os navios de guerra do país Rússia...
+Computador já está em posição de batalha!
+1: Brasil
+   1 cruzador
+   2 torpedeiro
+   1 destroyer
+   1 couracado
+   1 porta-avioes
+2: França
+   3 cruzador
+   1 porta-avioes
+   1 destroyer
+   1 submarino
+   1 couracado
+3: Austrália
+   1 couracado
+   3 cruzador
+   1 submarino
+   1 porta-avioes
+   1 torpedeiro
+4: Rússia
+   1 cruzador
+   1 porta-avioes
+   2 couracado
+   1 destroyer
+   1 submarino
+5: Japão
+   2 torpedeiro
+   1 cruzador
+   2 destroyer
+   1 couracado
+   1 submarino
+"""
+
+#FUNÇÕES QUE VAMOS UTILIZAR 
+
 def string(l):
     string=''
     for i in l:
@@ -62,6 +108,8 @@ def cria_mapa(n):
             l2.append(' ')
         l.append(l2)
     return l
+
+
 def posicao_suporta(m,n,l,c,o):
     if o=='h':
         if c+n>len(m[0]):
@@ -77,6 +125,8 @@ def posicao_suporta(m,n,l,c,o):
             if m[l+i][c]=='N':
                 return False
         return True
+    
+
 def aloca_navios(m, l):
     for i in l:
         while True:
@@ -92,6 +142,8 @@ def aloca_navios(m, l):
             for a in range(i):
                 m[linha + a][coluna] = 'N'
     return m
+
+
 def foi_derrotado(l):
     for i in range(len(l)):
         for k in range(len(l[i])):
@@ -100,3 +152,8 @@ def foi_derrotado(l):
 mapausu = cria_mapa(10)
 mapacomp = cria_mapa(10)
 frota = int(input(''))
+
+#JOGO EM SI 
+
+print(mensagem_inicial)
+escolhe_pais = input("Qual o número da nação da sua frota?")
