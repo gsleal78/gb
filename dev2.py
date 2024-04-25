@@ -161,6 +161,6 @@ for s in mi:
     if i == 0: 
         print(s)
     else: 
-        time.sleep(1)
+        time.sleep(1)        
         print(s)
 escolhe_pais = input("Qual o número da nação da sua frota?")
