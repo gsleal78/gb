@@ -151,7 +151,6 @@ def foi_derrotado(l):
     return True
 mapausu = cria_mapa(10)
 mapacomp = cria_mapa(10)
-frota = int(input(''))
 
 #JOGO EM SI 
 
