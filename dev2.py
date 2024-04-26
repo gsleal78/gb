@@ -153,8 +153,10 @@ def foi_derrotado(l):
         for k in range(len(l[i])):
             if l[i][k]=='N':return False
     return True
+
 mapausu = cria_mapa(10)
 mapacomp = cria_mapa(10)
+
 while True:
     frota = int(input("Qual o número da nação da sua frota?"))
     if frota in listanumeros:
