@@ -251,3 +251,4 @@ for i in naviosusuario:
                 else:   print('Opção inválida')
             else:   print('Opção inválida')
         else:   print('Opção inválida')
+a
