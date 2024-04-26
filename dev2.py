@@ -13,6 +13,7 @@ CONFIGURACAO = {
     'cruzador': 2,
     'couracado': 4
 }
+Numeroparapais={1:'Brasil', 2:'França', 3:'Austrália', 4:'Rússia', 5:'Japão'}
 PAISES =  {
     'Brasil': {
         'cruzador': 1,
@@ -93,7 +94,7 @@ Suas opções:,
 """
 
 mi = mensagem_inicial.split(",")
-
+print(mensagem_inicial)
 #FUNÇÕES QUE VAMOS UTILIZAR 
 
 def string(l):
@@ -154,3 +155,4 @@ def foi_derrotado(l):
     return True
 mapausu = cria_mapa(10)
 mapacomp = cria_mapa(10)
+frota = int(input("Qual o número da nação da sua frota?"))
