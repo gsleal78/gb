@@ -102,6 +102,7 @@ mi = mensagem_inicial.split(",")
 =======
 print(mensagem_inicial)
 >>>>>>> 99f799bbda9f1e62d0fc7cd0fe0ed75ceeec80b1
+
 #FUNÇÕES QUE VAMOS UTILIZAR 
 
 
