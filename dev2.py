@@ -203,5 +203,17 @@ def printa_string(l1,l2):
     print("    A  B  C  D  E  F  G  H  I  J                                 A  B  C  D  E  F  G  H  I  J ")
     return ''
 print(printa_string(lista,lista2))
+naviosusuario=[]
+for a,b in PAISES[numeroparapais[frota]]:
+    for k in range(b):
+        naviosusuario.append(a)
+naviosusuario2=naviosusuario
+del naviosusuario2[0]
+for i in naviosusuario:
+    while True:
+        print(f'alocar: {i} {CONFIGURACAO[i]} blocos')
+        print('próximos: naviosusuario2')
+        coordenada = input('Informe a coordenada ex:A1')
+
 
   
