@@ -139,7 +139,7 @@ def converte_coordenada(coordenada):
     return coordenada2
 
 def valida_coordenada(coordenada):
-    if coordenada[0] in 'ABCDEFGHIJ' and int(coordenada[1]) in range(1,11): 
+    if coordenada[0].upper() in 'ABCDEFGHIJ' and int(coordenada[1]) in range(1,11): 
         return True 
     return False 
 
