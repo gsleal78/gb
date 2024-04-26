@@ -42,17 +42,13 @@ def valida_coordenada(coordenada):
         return True 
     return False 
 
-def aloca_navios_jo(m, l,linha,coluna,orientacao):
-    for i in l:
-        if posicao_suporta(m, i, linha, coluna, orientacao):       
-            if orientacao == 'h':
-                for a in range(i):
-                    m[linha][a + coluna] = 'N'
-            else:
-                for a in range(i):
-                    m[linha + a][coluna] = 'N'
-        else: 
-            return False
+def aloca_navios_jo(m, n,linha,coluna,orientacao):      
+    if orientacao == 'h':
+        for n2 in range(n):
+            m[linha][n2 + coluna] = 'N'
+    else:
+        for n2 in range(n):
+            m[linha + n2][coluna] = 'N'
     return m
 
 
