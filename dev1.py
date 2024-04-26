@@ -10,6 +10,7 @@ def cria_mapa(n):
 
 lista = cria_mapa(10)
 lista2 = cria_mapa(10)
+lista2[0][0] = "\u001b[31m▓▓▓\u001b[0m"
 def printa_string(l1,l2):
     print("        COMPUTADOR - Austrália                                        JOGADOR - Austrália")
     print("    A  B  C  D  E  F  G  H  I  J                                 A  B  C  D  E  F  G  H  I  J ")
