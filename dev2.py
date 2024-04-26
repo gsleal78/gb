@@ -98,7 +98,25 @@ Suas opções:,
 mi = mensagem_inicial.split(",")
 #FUNÇÕES QUE VAMOS UTILIZAR 
 
+def verifica_stb(posicao):
+    if posicao == "N": 
+        return "X"
+    else: 
+        return "A"
+    
+def converte_coordenada(coordenada):
+    letra = coordenada[0].lower()
+    coluna = int(coordenada[1])
+    for k,v in d.items(): 
+        if letra == k: 
+            linha = v+1
+    coordenada2 = [linha,coluna]
+    return coordenada2
 
+def valida_coordenada(coordenada):
+    if coordenada[0] in 'ABCDEFGHIJ' and int(coordenada[1]) in range(1,11): 
+        return True 
+    return False 
 
 def string(l):
     string=''
@@ -214,6 +232,9 @@ for i in naviosusuario:
         print(f'alocar: {i} {CONFIGURACAO[i]} blocos')
         print('próximos: naviosusuario2')
         coordenada = input('Informe a coordenada ex:A1')
-
-
-  
+        direção = input('Informe a Orientação [v|h]')
+        direção=direção.lower()
+        if direção in 'vh':
+            if valida_coordenada(coordenada):
+                coordenada = converte_coordenada(coordenada)
+                if posicao_suporta(mapausu, CONFIGURACAO[i], coordenada[0], coordenada[1], direção):
