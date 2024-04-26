@@ -175,7 +175,7 @@ for a,b in PAISES[comp_pais].items():
         blocoscomp.append(CONFIGURACAO[a])
 mapacomp=aloca_navios(mapacomp,blocoscomp)
 
-
+print(mapacomp)
         
 while True:
     frota = input("Qual o número da nação da sua frota?")
