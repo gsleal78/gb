@@ -16,3 +16,15 @@ def printa_string(l):
             string +=k
         string+='\n'
     return string
+i = 0 
+for s in mi: 
+    if i == 0: 
+        print(s)
+        i+=1 
+    else: 
+        time.sleep(2)        
+        print(s)
+escolhe_pais = input("Qual o número da nação da sua frota?")
+print("Otima escolha")
+time.sleep(1)
+print("Iniciando jogo!")
