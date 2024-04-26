@@ -96,12 +96,6 @@ Suas opções:,
 """
 
 mi = mensagem_inicial.split(",")
-
-
-
-print(mensagem_inicial)
-
-
 #FUNÇÕES QUE VAMOS UTILIZAR 
 
 
@@ -162,6 +156,8 @@ def foi_derrotado(l):
         for k in range(len(l[i])):
             if l[i][k]=='N':return False
     return True
+
+
 #JOGO EM SI 
 i = 0 
 for s in mi: 
@@ -171,12 +167,16 @@ for s in mi:
     else: 
         time.sleep(2)        
         print(s)
-escolhe_pais = input("Qual o número da nação da sua frota?")
-print("Otima escolha")
-time.sleep(1)
-print("Iniciando jogo!")
 mapausu = cria_mapa(10)
 mapacomp = cria_mapa(10)
+blocoscomp=[]
+for a,b in PAISES[comp_pais].items():
+    for i in range(b):
+        blocoscomp.append(CONFIGURACAO[a])
+mapacomp=aloca_navios(mapacomp,blocoscomp)
+
+
+        
 while True:
     frota = int(input("Qual o número da nação da sua frota?"))
     if frota in listanumeros:
