@@ -3,7 +3,7 @@ from random import choice
 import time
 
 #DEFINIÇÕES NECESSÁRIAS 
-
+listanumeros=[1,2,3,4,5]
 d={'a':0, 'b':1, 'c':2, 'd':3, 'e':4, 'f':5, 'g':6, 'h':7, 'i':8, 'j':9}
 CONFIGURACAO = {
     'destroyer': 3,
@@ -13,6 +13,7 @@ CONFIGURACAO = {
     'cruzador': 2,
     'couracado': 4
 }
+numeroparapais={1:'Brasil', 2:'França', 3:'Austrália', 4:'Rússia', 5:'Japão'}
 PAISES =  {
     'Brasil': {
         'cruzador': 1,
@@ -95,8 +96,12 @@ Suas opções:,
 """
 
 mi = mensagem_inicial.split(",")
+<<<<<<< HEAD
 
 
+=======
+print(mensagem_inicial)
+>>>>>>> 99f799bbda9f1e62d0fc7cd0fe0ed75ceeec80b1
 #FUNÇÕES QUE VAMOS UTILIZAR 
 
 
@@ -157,6 +162,7 @@ def foi_derrotado(l):
         for k in range(len(l[i])):
             if l[i][k]=='N':return False
     return True
+<<<<<<< HEAD
 
 
 #JOGO EM SI 
@@ -173,3 +179,14 @@ escolhe_pais = input("Qual o número da nação da sua frota?")
 print("Otima escolha")
 time.sleep(1)
 print("Iniciando jogo!")
+=======
+mapausu = cria_mapa(10)
+mapacomp = cria_mapa(10)
+while True:
+    frota = int(input("Qual o número da nação da sua frota?"))
+    if frota in listanumeros:
+        break
+    else:
+        print("Opção inválida")
+print(f"Você escolheu a nação {numeroparapais[frota]}\nAgora é sua vez de alocar seus navios de guerra!")
+>>>>>>> 99f799bbda9f1e62d0fc7cd0fe0ed75ceeec80b1
