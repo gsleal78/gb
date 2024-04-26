@@ -50,14 +50,16 @@ PAISES =  {
         'submarino': 1
     }
 }
+Paises = ["Brasil","França","Austrália","Rússia","Japão"]
+comp_pais = choice(Paises)
 
-mensagem_inicial = """=======================================
+mensagem_inicial = f"""=======================================
 |                                     |
 |   Bem-vindo ao CAMPO DE GUERRA      |
 |                                     |
 =======================================,
 Iniciando o Jogo!,
-Computador está alocando os navios de guerra do país Rússia...,
+Computador está alocando os navios de guerra do país {comp_pais}...,
 Computador já está em posição de batalha!,
 Suas opções:,
 1: Brasil
@@ -65,36 +67,39 @@ Suas opções:,
    2 torpedeiro
    1 destroyer
    1 couracado
-   1 porta-avioes
+   1 porta-avioes,
 2: França
    3 cruzador
    1 porta-avioes
    1 destroyer
    1 submarino
-   1 couracado
+   1 couracado,
 3: Austrália
    1 couracado
    3 cruzador
    1 submarino
    1 porta-avioes
-   1 torpedeiro
+   1 torpedeiro,
 4: Rússia
    1 cruzador
    1 porta-avioes
    2 couracado
    1 destroyer
-   1 submarino
+   1 submarino,
 5: Japão
    2 torpedeiro
    1 cruzador
    2 destroyer
    1 couracado
-   1 submarino
+   1 submarino  
 """
 
 mi = mensagem_inicial.split(",")
 
+
 #FUNÇÕES QUE VAMOS UTILIZAR 
+
+
 
 def string(l):
     string=''
@@ -152,15 +157,19 @@ def foi_derrotado(l):
         for k in range(len(l[i])):
             if l[i][k]=='N':return False
     return True
-mapausu = cria_mapa(10)
-mapacomp = cria_mapa(10)
+
 
 #JOGO EM SI 
+
 i = 0 
 for s in mi: 
     if i == 0: 
         print(s)
+        i+=1 
     else: 
-        time.sleep(1)        
+        time.sleep(2)        
         print(s)
 escolhe_pais = input("Qual o número da nação da sua frota?")
+print("Otima escolha")
+time.sleep(1)
+print("Iniciando jogo!")
