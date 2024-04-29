@@ -31,11 +31,11 @@ def verifica_stb(posicao):
     
 def converte_coordenada(coordenada):
     letra = coordenada[0].lower()
-    coluna = int(coordenada[1])-1
+    linha = int(coordenada[1])-1
     for k,v in d.items(): 
         if letra == k: 
-            linha = v
-    coordenada2 = [linha,coluna]
+            coluna = v
+    coordenada2 = [coluna,linha]
     return coordenada2
 
 def valida_coordenada(coordenada):
@@ -78,11 +78,11 @@ def printa_string(l1,l2,lista):
     return ''
 
 def printa_string_bombardeio(l1,l2,lista):
-    for i in range(len(l2)): 
-        for l in range(len(l2[i])): 
-            if l2[i][l] == "N": 
+    for i in range(len(lista)): 
+        for l in range(len(lista[i])): 
+            if l1[i][l] == "N": 
                 cor = "X"
-                l2[i][l] = DICIONARIO_CORES[cor]
+                l1[i][l] = DICIONARIO_CORES[cor]
     for i in range(len(l2)): 
         for l in range(len(l2[i])): 
             if l2[i][l] == "A": 
@@ -104,4 +104,3 @@ def printa_string_bombardeio(l1,l2,lista):
     print(f'  9{l1[8][0]}{l1[8][1]}{l1[8][2]}{l1[8][3]}{l1[8][4]}{l1[8][5]}{l1[8][6]}{l1[8][7]}{l1[8][8]}{l1[8][9]}9                             9{l2[8][0]}{l2[8][1]}{l2[8][2]}{l2[8][3]}{l2[8][4]}{l2[8][5]}{l2[8][6]}{l2[8][7]}{l2[8][8]}{l2[8][9]}9')
     print(f' 10{l1[9][0]}{l1[9][1]}{l1[9][2]}{l1[9][3]}{l1[9][4]}{l1[9][5]}{l1[9][6]}{l1[9][7]}{l1[9][8]}{l1[9][9]}10                           10{l2[9][0]}{l2[9][1]}{l2[9][2]}{l2[9][3]}{l2[9][4]}{l2[9][5]}{l2[9][6]}{l2[9][7]}{l2[9][8]}{l2[9][9]}10')            
     print("    A  B  C  D  E  F  G  H  I  J                                 A  B  C  D  E  F  G  H  I  J ")
-    return ''
