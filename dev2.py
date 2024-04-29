@@ -124,7 +124,7 @@ def printa_string_bombardeio(l1,l2,lista):
             elif l2[i][l] == "X": 
                 cor = "X"
                 l2[i][l] = DICIONARIO_CORES[cor]
-    print("        COMPUTADOR - Austrália                                        JOGADOR - Austrália")
+    print(f"        COMPUTADOR - {comp_pais}                                        JOGADOR - {numeroparapais[frota]}")
     print("    A  B  C  D  E  F  G  H  I  J                                 A  B  C  D  E  F  G  H  I  J ")
     print(f'  1{l1[0][0]}{l1[0][1]}{l1[0][2]}{l1[0][3]}{l1[0][4]}{l1[0][5]}{l1[0][6]}{l1[0][7]}{l1[0][8]}{l1[0][9]}1                             1{l2[0][0]}{l2[0][1]}{l2[0][2]}{l2[0][3]}{l2[0][4]}{l2[0][5]}{l2[0][6]}{l2[0][7]}{l2[0][8]}{l2[0][9]}1')
     print(f'  2{l1[1][0]}{l1[1][1]}{l1[1][2]}{l1[1][3]}{l1[1][4]}{l1[1][5]}{l1[1][6]}{l1[1][7]}{l1[1][8]}{l1[1][9]}2                             2{l2[1][0]}{l2[1][1]}{l2[1][2]}{l2[1][3]}{l2[1][4]}{l2[1][5]}{l2[1][6]}{l2[1][7]}{l2[1][8]}{l2[1][9]}2')
@@ -144,7 +144,7 @@ def printa_string(l1,l2):
             if l2[i][l] == "N": 
                 cor = "V"
                 l2[i][l] = DICIONARIO_CORES[cor]
-    print("        COMPUTADOR - Austrália                                        JOGADOR - Austrália")
+    print(f"        COMPUTADOR - {comp_pais}                                             JOGADOR - {numeroparapais[frota]}")
     print("    A  B  C  D  E  F  G  H  I  J                                 A  B  C  D  E  F  G  H  I  J ")
     print(f'  1{l1[0][0]}{l1[0][1]}{l1[0][2]}{l1[0][3]}{l1[0][4]}{l1[0][5]}{l1[0][6]}{l1[0][7]}{l1[0][8]}{l1[0][9]}1                             1{l2[0][0]}{l2[0][1]}{l2[0][2]}{l2[0][3]}{l2[0][4]}{l2[0][5]}{l2[0][6]}{l2[0][7]}{l2[0][8]}{l2[0][9]}1')
     print(f'  2{l1[1][0]}{l1[1][1]}{l1[1][2]}{l1[1][3]}{l1[1][4]}{l1[1][5]}{l1[1][6]}{l1[1][7]}{l1[1][8]}{l1[1][9]}2                             2{l2[1][0]}{l2[1][1]}{l2[1][2]}{l2[1][3]}{l2[1][4]}{l2[1][5]}{l2[1][6]}{l2[1][7]}{l2[1][8]}{l2[1][9]}2')
@@ -240,10 +240,16 @@ def aloca_navios(m, l):
     return m
 
 
-def foi_derrotado(l):
+def foi_derrotado_usu(l):
     for i in range(len(l)):
         for k in range(len(l[i])):
-            if l[i][k]=='N':return False
+            if l[i][k] == '\u001b[32m▓▓▓\u001b[0m' :return False
+    return True
+
+def foi_derrotado_comp(l):
+    for i in range(len(l)):
+        for k in range(len(l[i])):
+            if l[i][k] == 'N' :return False
     return True
 
 
@@ -313,14 +319,15 @@ while True:
             mapausu[linha][coluna]='A'
             x="Água"
             break
-        elif mapausu[linha][coluna]=='N':
+        elif mapausu[linha][coluna]=='\u001b[32m▓▓▓\u001b[0m':
             mapausu[linha][coluna]='X'
             x="Fogo"
             break
     print(f'Computador ----->>>>> {numeroparaletra[coluna]}{linha+1} {x}')
     print(printa_string_bombardeio(lista, mapausu, mapacomp))
-    if foi_derrotado(mapausu)==False:
-        k=0
+    print(mapausu)
+    if foi_derrotado_usu(mapausu)==True:
+        print("Você perdeu!")
         break
     while True:
         linha = int(input("Linha:"))
@@ -341,6 +348,6 @@ while True:
     print(f'Jogador ----->>>>> {linha}{coluna} {x}')
     print(printa_string_bombardeio(lista, mapausu, mapacomp))
     print(mapacomp)
-    if foi_derrotado(mapacomp)==True:
-        k=1
+    if foi_derrotado_comp(mapacomp)==True:
+        print("Você ganhou! Parabéns!")
         break
