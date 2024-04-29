@@ -83,6 +83,9 @@ def printa_string_bombardeio(l1,l2,lista):
             if l1[i][l] == "X": 
                 cor = "X"
                 l1[i][l] = DICIONARIO_CORES[cor]
+            else: 
+                cor = "A"
+                l1[i][l] = DICIONARIO_CORES[cor]
     for i in range(len(l2)): 
         for l in range(len(l2[i])): 
             if l2[i][l] == "A": 

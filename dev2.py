@@ -113,6 +113,9 @@ def printa_string_bombardeio(l1,l2,lista):
             if l1[i][l] == "X": 
                 cor = "X"
                 l1[i][l] = DICIONARIO_CORES[cor]
+            elif l1[i][l] == "A": 
+                cor = "A"
+                l1[i][l] = DICIONARIO_CORES[cor]
     for i in range(len(l2)): 
         for l in range(len(l2[i])): 
             if l2[i][l] == "A": 
@@ -306,9 +309,6 @@ while True:
     while True:
         linha = randint(0, len(mapausu) - 1)
         coluna = randint(0, len(mapausu[0]) - 1)
-        print(linha)
-        print(coluna)
-        print(mapausu)
         if mapausu[linha][coluna]=='   ':
             mapausu[linha][coluna]='A'
             x="Água"
@@ -319,25 +319,28 @@ while True:
             break
     print(f'Computador ----->>>>> {numeroparaletra[coluna]}{linha+1} {x}')
     print(printa_string_bombardeio(lista, mapausu, mapacomp))
-    if foi_derrotado(mapausu)==True:
+    if foi_derrotado(mapausu)==False:
         k=0
         break
     while True:
-        linha = input("Linha:")
+        linha = int(input("Linha:"))
         coluna = input("Letra:")
         if linha in range(1,11) and coluna.lower() in letras:
-            if mapacomp[linha-1][d(coluna.lower())]=='N':
-                mapacomp[linha-1][d(coluna.lower())]='X'
+            if mapacomp[linha-1][d[coluna.lower()]]=='N':
+                lista[linha-1][d[coluna.lower()]]='X'
+                mapacomp[linha-1][d[coluna.lower()]] = "X"
                 x='Fogo'
                 break
-            elif mapacomp[linha-1][d(coluna.lower())]=='   ':
-                mapacomp[linha-1][d(coluna.lower())]='A'
+            elif mapacomp[linha-1][d[coluna.lower()]]=='   ':
+                lista[linha-1][d[coluna.lower()]]='A'
                 x='Água'
+                mapacomp[linha-1][d[coluna.lower()]] ="A"
                 break
             else:
                 print(f"Posição {coluna.upper()}{linha} já bombardeada")
     print(f'Jogador ----->>>>> {linha}{coluna} {x}')
     print(printa_string_bombardeio(lista, mapausu, mapacomp))
+    print(mapacomp)
     if foi_derrotado(mapacomp)==True:
         k=1
         break
