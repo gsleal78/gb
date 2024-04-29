@@ -107,6 +107,35 @@ Suas opções:,
 mi = mensagem_inicial.split(",")
 #FUNÇÕES QUE VAMOS UTILIZAR 
 
+def printa_string_bombardeio(l1,l2,lista):
+    for i in range(len(l2)): 
+        for l in range(len(l2[i])): 
+            if l2[i][l] == "N": 
+                cor = "X"
+                l2[i][l] = DICIONARIO_CORES[cor]
+    for i in range(len(l2)): 
+        for l in range(len(l2[i])): 
+            if l2[i][l] == "A": 
+                cor = "A"
+                l2[i][l] = DICIONARIO_CORES[cor]
+            else: 
+                cor = "X"
+                l2[i][l] = DICIONARIO_CORES[cor]
+    print("        COMPUTADOR - Austrália                                        JOGADOR - Austrália")
+    print("    A  B  C  D  E  F  G  H  I  J                                 A  B  C  D  E  F  G  H  I  J ")
+    print(f'  1{l1[0][0]}{l1[0][1]}{l1[0][2]}{l1[0][3]}{l1[0][4]}{l1[0][5]}{l1[0][6]}{l1[0][7]}{l1[0][8]}{l1[0][9]}1                             1{l2[0][0]}{l2[0][1]}{l2[0][2]}{l2[0][3]}{l2[0][4]}{l2[0][5]}{l2[0][6]}{l2[0][7]}{l2[0][8]}{l2[0][9]}1')
+    print(f'  2{l1[1][0]}{l1[1][1]}{l1[1][2]}{l1[1][3]}{l1[1][4]}{l1[1][5]}{l1[1][6]}{l1[1][7]}{l1[1][8]}{l1[1][9]}2                             2{l2[1][0]}{l2[1][1]}{l2[1][2]}{l2[1][3]}{l2[1][4]}{l2[1][5]}{l2[1][6]}{l2[1][7]}{l2[1][8]}{l2[1][9]}2')
+    print(f'  3{l1[2][0]}{l1[2][1]}{l1[2][2]}{l1[2][3]}{l1[2][4]}{l1[2][5]}{l1[2][6]}{l1[2][7]}{l1[2][8]}{l1[2][9]}3                             3{l2[2][0]}{l2[2][1]}{l2[2][2]}{l2[2][3]}{l2[2][4]}{l2[2][5]}{l2[2][6]}{l2[2][7]}{l2[2][8]}{l2[2][9]}3')
+    print(f'  4{l1[3][0]}{l1[3][1]}{l1[3][2]}{l1[3][3]}{l1[3][4]}{l1[3][5]}{l1[3][6]}{l1[3][7]}{l1[3][8]}{l1[3][9]}4                             4{l2[3][0]}{l2[3][1]}{l2[3][2]}{l2[3][3]}{l2[3][4]}{l2[3][5]}{l2[3][6]}{l2[3][7]}{l2[3][8]}{l2[3][9]}4')
+    print(f'  5{l1[4][0]}{l1[4][1]}{l1[4][2]}{l1[4][3]}{l1[4][4]}{l1[4][5]}{l1[4][6]}{l1[4][7]}{l1[4][8]}{l1[4][9]}5                             5{l2[4][0]}{l2[4][1]}{l2[4][2]}{l2[4][3]}{l2[4][4]}{l2[4][5]}{l2[4][6]}{l2[4][7]}{l2[4][8]}{l2[4][9]}5')
+    print(f'  6{l1[5][0]}{l1[5][1]}{l1[5][2]}{l1[5][3]}{l1[5][4]}{l1[5][5]}{l1[5][6]}{l1[5][7]}{l1[5][8]}{l1[5][9]}6                             6{l2[5][0]}{l2[5][1]}{l2[5][2]}{l2[5][3]}{l2[5][4]}{l2[5][5]}{l2[5][6]}{l2[5][7]}{l2[5][8]}{l2[5][9]}6')
+    print(f'  7{l1[6][0]}{l1[6][1]}{l1[6][2]}{l1[6][3]}{l1[6][4]}{l1[6][5]}{l1[6][6]}{l1[6][7]}{l1[6][8]}{l1[6][9]}7                             7{l2[6][0]}{l2[6][1]}{l2[6][2]}{l2[6][3]}{l2[6][4]}{l2[6][5]}{l2[6][6]}{l2[6][7]}{l2[6][8]}{l2[6][9]}7')
+    print(f'  8{l1[7][0]}{l1[7][1]}{l1[7][2]}{l1[7][3]}{l1[7][4]}{l1[7][5]}{l1[7][6]}{l1[7][7]}{l1[7][8]}{l1[7][9]}8                             8{l2[7][0]}{l2[7][1]}{l2[7][2]}{l2[7][3]}{l2[7][4]}{l2[7][5]}{l2[7][6]}{l2[7][7]}{l2[7][8]}{l2[7][9]}8')
+    print(f'  9{l1[8][0]}{l1[8][1]}{l1[8][2]}{l1[8][3]}{l1[8][4]}{l1[8][5]}{l1[8][6]}{l1[8][7]}{l1[8][8]}{l1[8][9]}9                             9{l2[8][0]}{l2[8][1]}{l2[8][2]}{l2[8][3]}{l2[8][4]}{l2[8][5]}{l2[8][6]}{l2[8][7]}{l2[8][8]}{l2[8][9]}9')
+    print(f' 10{l1[9][0]}{l1[9][1]}{l1[9][2]}{l1[9][3]}{l1[9][4]}{l1[9][5]}{l1[9][6]}{l1[9][7]}{l1[9][8]}{l1[9][9]}10                           10{l2[9][0]}{l2[9][1]}{l2[9][2]}{l2[9][3]}{l2[9][4]}{l2[9][5]}{l2[9][6]}{l2[9][7]}{l2[9][8]}{l2[9][9]}10')            
+    print("    A  B  C  D  E  F  G  H  I  J                                 A  B  C  D  E  F  G  H  I  J ")
+    return ''
+
 def printa_string(l1,l2):
     for i in range(len(l2)): 
         for l in range(len(l2[i])): 
@@ -258,8 +287,8 @@ for i in naviosusuario:
         if direção in 'vh':
             if valida_coordenada(coordenada):
                 coordenada = converte_coordenada(coordenada)
-                if posicao_suporta(mapausu, CONFIGURACAO[i], coordenada[0], coordenada[1], direção):
-                    mapausu=aloca_navios_jo(mapausu, CONFIGURACAO[i], coordenada[0], coordenada[1],direção)
+                if posicao_suporta(mapausu, CONFIGURACAO[i], coordenada[1], coordenada[0], direção):
+                    mapausu=aloca_navios_jo(mapausu, CONFIGURACAO[i], coordenada[1], coordenada[0],direção)
                     print(printa_string(lista, mapausu))
                     break
                 else:   print('Opção inválida')
@@ -286,6 +315,7 @@ while True:
             x="Fogo"
             break
     print(f'Computador ----->>>>> {numeroparalinha[linha]}{coluna+1} {x}')
+    print(printa_string_bombardeio(lista, mapausu, mapacomp))
     if foi_derrotado(mapausu)==True:
         k=0
         break
@@ -304,6 +334,7 @@ while True:
             else:
                 print(f"Posição {coluna.upper()}{linha} já bombardeada")
     print(f'Jogador ----->>>>> {linha}{coluna} {x}')
+    print(printa_string_bombardeio(lista, mapausu, mapacomp))
     if foi_derrotado(mapacomp)==True:
         k=1
         break
