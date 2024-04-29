@@ -10,7 +10,7 @@ DICIONARIO_CORES = {
     "V": '\u001b[32m▓▓▓\u001b[0m'
 }
 
-numeroparalinha={0:'A', 1:'B', 2:'C', 3:'D', 4:'E', 5:'F', 6:'G', 7:'H', 8:'J'}
+numeroparaletra={0:'A', 1:'B', 2:'C', 3:'D', 4:'E', 5:'F', 6:'G', 7:'H', 8:'I', 9:'J'}
 listanumeros=['1','2','3','4','5']
 letras=['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
 d={'a':0, 'b':1, 'c':2, 'd':3, 'e':4, 'f':5, 'g':6, 'h':7, 'i':8, 'j':9}
@@ -108,11 +108,11 @@ mi = mensagem_inicial.split(",")
 #FUNÇÕES QUE VAMOS UTILIZAR 
 
 def printa_string_bombardeio(l1,l2,lista):
-    for i in range(len(l2)): 
-        for l in range(len(l2[i])): 
-            if l2[i][l] == "N": 
+    for i in range(len(lista)): 
+        for l in range(len(lista[i])): 
+            if l1[i][l] == "N": 
                 cor = "X"
-                l2[i][l] = DICIONARIO_CORES[cor]
+                l1[i][l] = DICIONARIO_CORES[cor]
     for i in range(len(l2)): 
         for l in range(len(l2[i])): 
             if l2[i][l] == "A": 
@@ -305,15 +305,15 @@ while True:
     while True:
         linha = randint(0, len(mapausu) - 1)
         coluna = randint(0, len(mapausu[0]) - 1)
-        if mapausu[coluna][linha]=='   ':
-            mapausu[coluna][linha]='A'
+        if mapausu[linha][coluna]=='   ':
+            mapausu[linha][coluna]='A'
             x="Água"
             break
-        elif mapausu[coluna][linha]=='N':
-            mapausu[coluna][linha]='X'
+        elif mapausu[linha][coluna]=='N':
+            mapausu[linha][coluna]='X'
             x="Fogo"
             break
-    print(f'Computador ----->>>>> {numeroparalinha[linha]}{coluna+1} {x}')
+    print(f'Computador ----->>>>> {numeroparaletra[coluna]}{linha+1} {x}')
     print(printa_string_bombardeio(lista, mapausu, mapacomp))
     if foi_derrotado(mapausu)==True:
         k=0
