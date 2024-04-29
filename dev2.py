@@ -221,7 +221,22 @@ def posicao_suporta(m,n,l,c,o):
             if m[l+i][c]=='N':
                 return False
         return True
-    
+
+def posicao_suporta_usu(m,n,l,c,o):
+    if o=='h':
+        if c+n>len(m[0]):
+            return False
+        for i in range(n):
+            if m[l][i+c]=='\u001b[32m▓▓▓\u001b[0m':
+                return False
+        return True
+    elif o=='v':
+        if l+n>len(m):
+            return False
+        for i in range(n):
+            if m[l+i][c]=='\u001b[32m▓▓▓\u001b[0m':
+                return False
+        return True
 
 def aloca_navios(m, l):
     for i in l:
@@ -293,13 +308,15 @@ for i in naviosusuario:
         coordenada = input('Informe a coordenada ex:A1')
         direção = input('Informe a Orientação [v|h]')
         direção=direção.lower()
-        if direção in 'vh':
-            if valida_coordenada(coordenada):
-                coordenada = converte_coordenada(coordenada)
-                if posicao_suporta(mapausu, CONFIGURACAO[i], coordenada[1], coordenada[0], direção):
-                    mapausu=aloca_navios_jo(mapausu, CONFIGURACAO[i], coordenada[1], coordenada[0],direção)
-                    print(printa_string(lista, mapausu))
-                    break
+        if posicao_suporta_usu(mapausu, CONFIGURACAO[i], d[coordenada[0]], int(coordenada[1])-1, direção)==True:
+            if direção in 'vh':
+                if valida_coordenada(coordenada):
+                    coordenada = converte_coordenada(coordenada)
+                    if posicao_suporta(mapausu, CONFIGURACAO[i], coordenada[1], coordenada[0], direção):
+                        mapausu=aloca_navios_jo(mapausu, CONFIGURACAO[i], coordenada[1], coordenada[0],direção)
+                        print(printa_string(lista, mapausu))
+                        break
+                    else:   print('Opção inválida')
                 else:   print('Opção inválida')
             else:   print('Opção inválida')
         else:   print('Opção inválida')
