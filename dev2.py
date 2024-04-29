@@ -3,6 +3,14 @@ from random import choice
 import time
 
 #DEFINIÇÕES NECESSÁRIAS 
+
+DICIONARIO_CORES = {
+    "A": '\u001b[34m▓▓▓\u001b[0m',
+    "X": '\u001b[31m▓▓▓\u001b[0m',
+    "V": '\u001b[32m▓▓▓\u001b[0m'
+}
+
+
 listanumeros=['1','2','3','4','5']
 d={'a':0, 'b':1, 'c':2, 'd':3, 'e':4, 'f':5, 'g':6, 'h':7, 'i':8, 'j':9}
 CONFIGURACAO = {
