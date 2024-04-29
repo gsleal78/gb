@@ -134,7 +134,6 @@ def printa_string_bombardeio(l1,l2,lista):
     print(f'  9{l1[8][0]}{l1[8][1]}{l1[8][2]}{l1[8][3]}{l1[8][4]}{l1[8][5]}{l1[8][6]}{l1[8][7]}{l1[8][8]}{l1[8][9]}9                             9{l2[8][0]}{l2[8][1]}{l2[8][2]}{l2[8][3]}{l2[8][4]}{l2[8][5]}{l2[8][6]}{l2[8][7]}{l2[8][8]}{l2[8][9]}9')
     print(f' 10{l1[9][0]}{l1[9][1]}{l1[9][2]}{l1[9][3]}{l1[9][4]}{l1[9][5]}{l1[9][6]}{l1[9][7]}{l1[9][8]}{l1[9][9]}10                           10{l2[9][0]}{l2[9][1]}{l2[9][2]}{l2[9][3]}{l2[9][4]}{l2[9][5]}{l2[9][6]}{l2[9][7]}{l2[9][8]}{l2[9][9]}10')            
     print("    A  B  C  D  E  F  G  H  I  J                                 A  B  C  D  E  F  G  H  I  J ")
-    return ''
 
 def printa_string(l1,l2):
     for i in range(len(l2)): 
@@ -182,7 +181,7 @@ def converte_coordenada(coordenada):
     return coordenada2
 
 def valida_coordenada(coordenada):
-    if coordenada[0].upper() in 'ABCDEFGHIJ' and int(coordenada[1]) in range(1,11): 
+    if coordenada[0].upper() in 'ABCDEFGHIJ' and int(coordenada[1]) in range(1,11) and len(coordenada) == 2:
         return True 
     return False 
 
@@ -306,12 +305,12 @@ while True:
     while True:
         linha = randint(0, len(mapausu) - 1)
         coluna = randint(0, len(mapausu[0]) - 1)
-        if mapausu[linha][coluna]=='   ':
-            mapausu[linha][coluna]='A'
+        if mapausu[coluna][linha]=='   ':
+            mapausu[coluna][linha]='A'
             x="Água"
             break
-        elif mapausu[linha][coluna]=='N':
-            mapausu[linha][coluna]='X'
+        elif mapausu[coluna][linha]=='N':
+            mapausu[coluna][linha]='X'
             x="Fogo"
             break
     print(f'Computador ----->>>>> {numeroparalinha[linha]}{coluna+1} {x}')
