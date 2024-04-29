@@ -10,8 +10,9 @@ DICIONARIO_CORES = {
     "V": '\u001b[32m▓▓▓\u001b[0m'
 }
 
-
+numeroparalinha={0:'A', 1:'B', 2:'C', 3:'D', 4:'E', 5:'F', 6:'G', 7:'H', 8:'J'}
 listanumeros=['1','2','3','4','5']
+letras=['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
 d={'a':0, 'b':1, 'c':2, 'd':3, 'e':4, 'f':5, 'g':6, 'h':7, 'i':8, 'j':9}
 CONFIGURACAO = {
     'destroyer': 3,
@@ -264,4 +265,45 @@ for i in naviosusuario:
                 else:   print('Opção inválida')
             else:   print('Opção inválida')
         else:   print('Opção inválida')
-a
+print("Iniciando Batalha naval!")
+i = 0 
+for i in range(5,0,-1): 
+    if i == 5: 
+        print(i)
+    else: 
+        time.sleep(1)        
+        print(i)
+while True:
+    while True:
+        linha = randint(0, len(mapausu) - 1)
+        coluna = randint(0, len(mapausu[0]) - 1)
+        if mapausu[linha][coluna]=='   ':
+            mapausu[linha][coluna]='A'
+            x="Água"
+            break
+        elif mapausu[linha][coluna]=='N':
+            mapausu[linha][coluna]='X'
+            x="Fogo"
+            break
+    print(f'Computador ----->>>>> {numeroparalinha[linha]}{coluna+1} {x}')
+    if foi_derrotado(mapausu)==True:
+        k=0
+        break
+    while True:
+        linha = input("Linha:")
+        coluna = input("Letra:")
+        if linha in range(1,11) and coluna.lower() in letras:
+            if mapacomp[linha-1][d(coluna.lower())]=='N':
+                mapacomp[linha-1][d(coluna.lower())]='X'
+                x='Fogo'
+                break
+            elif mapacomp[linha-1][d(coluna.lower())]=='   ':
+                mapacomp[linha-1][d(coluna.lower())]='A'
+                x='Água'
+                break
+            else:
+                print(f"Posição {coluna.upper()}{linha} já bombardeada")
+    print(f'Jogador ----->>>>> {linha}{coluna} {x}')
+    if foi_derrotado(mapacomp)==True:
+        k=1
+        break
