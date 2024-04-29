@@ -80,7 +80,7 @@ def printa_string(l1,l2,lista):
 def printa_string_bombardeio(l1,l2,lista):
     for i in range(len(lista)): 
         for l in range(len(lista[i])): 
-            if l1[i][l] == "N": 
+            if l1[i][l] == "X": 
                 cor = "X"
                 l1[i][l] = DICIONARIO_CORES[cor]
     for i in range(len(l2)): 
