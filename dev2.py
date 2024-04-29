@@ -308,15 +308,14 @@ for i in naviosusuario:
         coordenada = input('Informe a coordenada ex:A1')
         direção = input('Informe a Orientação [v|h]')
         direção=direção.lower()
-        if posicao_suporta_usu(mapausu, CONFIGURACAO[i], d[coordenada[0]], int(coordenada[1])-1, direção)==True:
-            if direção in 'vh':
-                if valida_coordenada(coordenada):
+        coordenada=coordenada.lower()
+        if direção in 'vh':
+            if valida_coordenada(coordenada):
+                if posicao_suporta_usu(mapausu, CONFIGURACAO[i], int(coordenada[1])-1, d[coordenada[0]], direção):
                     coordenada = converte_coordenada(coordenada)
-                    if posicao_suporta(mapausu, CONFIGURACAO[i], coordenada[1], coordenada[0], direção):
-                        mapausu=aloca_navios_jo(mapausu, CONFIGURACAO[i], coordenada[1], coordenada[0],direção)
-                        print(printa_string(lista, mapausu))
-                        break
-                    else:   print('Opção inválida')
+                    mapausu=aloca_navios_jo(mapausu, CONFIGURACAO[i], coordenada[1], coordenada[0],direção)
+                    print(printa_string(lista, mapausu))
+                    break
                 else:   print('Opção inválida')
             else:   print('Opção inválida')
         else:   print('Opção inválida')
