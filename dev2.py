@@ -9,7 +9,7 @@ DICIONARIO_CORES = {
     "X": '\u001b[31m▓▓▓\u001b[0m',
     "V": '\u001b[32m▓▓▓\u001b[0m'
 }
-
+listanumeros2=['1','2','3','4','5','6','7','8','9','10']
 numeroparaletra={0:'A', 1:'B', 2:'C', 3:'D', 4:'E', 5:'F', 6:'G', 7:'H', 8:'I', 9:'J'}
 listanumeros=['1','2','3','4','5']
 letras=['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
@@ -275,7 +275,7 @@ for s in mi:
         print(s)
         i+=1 
     else: 
-        time.sleep(0)        
+        time.sleep(1)        
         print(s)
 mapausu = cria_mapa(10)
 mapacomp = cria_mapa(10)
@@ -322,11 +322,8 @@ for i in naviosusuario:
 print("Iniciando Batalha naval!")
 i = 0 
 for i in range(5,0,-1): 
-    if i == 5: 
-        print(i)
-    else: 
-        time.sleep(1)        
-        print(i)
+    print(i)
+    time.sleep(1)
 while True:
     while True:
         linha = randint(0, len(mapausu) - 1)
@@ -341,14 +338,14 @@ while True:
             break
     print(f'Computador ----->>>>> {numeroparaletra[coluna]}{linha+1} {x}')
     print(printa_string_bombardeio(lista, mapausu, mapacomp))
-    print(mapausu)
     if foi_derrotado_usu(mapausu)==True:
         print("Você perdeu!")
         break
     while True:
-        linha = int(input("Linha:"))
+        linha = input("Linha:")
         coluna = input("Letra:")
-        if linha in range(1,11) and coluna.lower() in letras:
+        if linha in listanumeros2 and coluna.lower() in letras:
+            linha = int(linha)
             if mapacomp[linha-1][d[coluna.lower()]]=='N':
                 lista[linha-1][d[coluna.lower()]]='X'
                 mapacomp[linha-1][d[coluna.lower()]] = "X"
@@ -361,9 +358,10 @@ while True:
                 break
             else:
                 print(f"Posição {coluna.upper()}{linha} já bombardeada")
+        else:
+            print('Opção inválida')
     print(f'Jogador ----->>>>> {linha}{coluna} {x}')
     print(printa_string_bombardeio(lista, mapausu, mapacomp))
-    print(mapacomp)
     if foi_derrotado_comp(mapacomp)==True:
         print("Você ganhou! Parabéns!")
         break
