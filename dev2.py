@@ -107,6 +107,11 @@ mi = mensagem_inicial.split(",")
 #FUNÇÕES QUE VAMOS UTILIZAR 
 
 def printa_string(l1,l2):
+    for i in range(len(l2)): 
+        for l in range(len(l2[i])): 
+            if l2[i][l] == "N": 
+                cor = "V"
+                l2[i][l] = DICIONARIO_CORES[cor]
     print("        COMPUTADOR - Austrália                                        JOGADOR - Austrália")
     print("    A  B  C  D  E  F  G  H  I  J                                 A  B  C  D  E  F  G  H  I  J ")
     print(f'  1{l1[0][0]}{l1[0][1]}{l1[0][2]}{l1[0][3]}{l1[0][4]}{l1[0][5]}{l1[0][6]}{l1[0][7]}{l1[0][8]}{l1[0][9]}1                             1{l2[0][0]}{l2[0][1]}{l2[0][2]}{l2[0][3]}{l2[0][4]}{l2[0][5]}{l2[0][6]}{l2[0][7]}{l2[0][8]}{l2[0][9]}1')
