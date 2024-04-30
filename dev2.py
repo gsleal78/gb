@@ -299,7 +299,7 @@ while t:
     frota=int(frota)
     print(f"Você escolheu a nação {numeroparapais[frota]}\nAgora é sua vez de alocar seus navios de guerra!")
     lista = cria_mapa(10)
-
+    print(mapacomp)
     naviosusuario=[]
     for a,b in PAISES[numeroparapais[frota]].items():
         for k in range(b):
@@ -359,7 +359,7 @@ while t:
             perg = perg.lower()
             if perg in ["não","nao"]: 
                 t = False 
-                break
+            break
         while True:
             linha = input("Escolha uma Linha:")
             coluna = input("Escolha uma Letra:")
@@ -388,4 +388,5 @@ while t:
             perg = perg.lower()
             if perg in ["não","nao"]: 
                 t = False 
-                break
+            break
+print("Obrigado por Jogar!")
