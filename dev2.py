@@ -330,7 +330,7 @@ while t:
                 if valida_coordenada(coordenada):
                     if posicao_suporta_usu(mapausu, CONFIGURACAO[i], int(coordenada[1])-1, d[coordenada[0]], direção):
                         coordenada = converte_coordenada(coordenada)
-                        mapausu=aloca_navios_jo(mapausu, CONFIGURACAO[i], coordenada[1]-1, coordenada[0],direção)
+                        mapausu=aloca_navios_jo(mapausu, CONFIGURACAO[i], coordenada[1], coordenada[0],direção)
                         print(printa_string(lista, mapausu))
                         if naviosusuario2!=[]:
                             del naviosusuario2[0]
