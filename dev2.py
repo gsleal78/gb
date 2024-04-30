@@ -270,7 +270,8 @@ def foi_derrotado_comp(l):
 perg='sim'
 #JOGO EM SI 
 comp_pais = choice(Paises)
-while True:
+t = True 
+while t:
     i = 0 
     for s in mi: 
         if i == 0: 
@@ -336,7 +337,7 @@ while True:
     for i in range(5,0,-1): 
         print(i)
         time.sleep(1)
-    while True:
+    while t:
         while True:
             linha = randint(0, len(mapausu) - 1)
             coluna = randint(0, len(mapausu[0]) - 1)
@@ -356,9 +357,10 @@ while True:
             print("Você perdeu!")
             perg = input("Quer jogar de novo? (Sim ou Não): ")
             perg = perg.lower()
-            break
+            if perg in ["não","nao"]: 
+                t = False 
+                break
         while True:
-            print(mapacomp)
             linha = input("Escolha uma Linha:")
             coluna = input("Escolha uma Letra:")
             if linha in listanumeros2 and coluna.lower() in letras:
@@ -384,4 +386,5 @@ while True:
             print("Você ganhou! Parabéns!")
             perg = input("Quer jogar de novo? (Sim ou Não): ")
             perg = perg.lower()
-            break
+            t = False
+            
