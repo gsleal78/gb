@@ -291,6 +291,8 @@ while True:
         break
     else:
         print("Opção inválida")
+        time.sleep(0.5)
+        print("Escolha uma opção válida")
 frota=int(frota)
 print(f"Você escolheu a nação {numeroparapais[frota]}\nAgora é sua vez de alocar seus navios de guerra!")
 lista = cria_mapa(10)
@@ -303,9 +305,11 @@ naviosusuario2=naviosusuario
 del naviosusuario2[0]
 for i in naviosusuario:
     while True:
+        time.sleep(1)
         print(f'alocar: {i} {CONFIGURACAO[i]} blocos')
+        time.sleep(1)
         print(f'próximos: {naviosusuario2}')
-        coordenada = input('Informe a coordenada ex:A1')
+        coordenada = input('Informe a coordenada exemplo(A1):')
         direção = input('Informe a Orientação [v|h]')
         direção=direção.lower()
         coordenada=coordenada.lower()
@@ -337,13 +341,16 @@ while True:
             x="Fogo"
             break
     print(f'Computador ----->>>>> {numeroparaletra[coluna]}{linha+1} {x}')
+    time.sleep(1)
     print(printa_string_bombardeio(lista, mapausu, mapacomp))
+    time.sleep(1)
     if foi_derrotado_usu(mapausu)==True:
         print("Você perdeu!")
         break
     while True:
-        linha = input("Linha:")
-        coluna = input("Letra:")
+        print(mapacomp)
+        linha = input("Escolha uma Linha:")
+        coluna = input("Escolha uma Letra:")
         if linha in listanumeros2 and coluna.lower() in letras:
             linha = int(linha)
             if mapacomp[linha-1][d[coluna.lower()]]=='N':
@@ -357,10 +364,11 @@ while True:
                 mapacomp[linha-1][d[coluna.lower()]] ="A"
                 break
             else:
-                print(f"Posição {coluna.upper()}{linha} já bombardeada")
+                print(f"Posição {coluna.upper()}{linha} já bombardeada!")
         else:
             print('Opção inválida')
     print(f'Jogador ----->>>>> {linha}{coluna} {x}')
+    time.sleep(1)
     print(printa_string_bombardeio(lista, mapausu, mapacomp))
     if foi_derrotado_comp(mapacomp)==True:
         print("Você ganhou! Parabéns!")
