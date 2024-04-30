@@ -176,10 +176,7 @@ def verifica_stb(posicao):
     
 def converte_coordenada(coordenada):
     letra = coordenada[0].lower()
-    if len(coordenada) == 2: 
-        coluna = int(coordenada[1])-1
-    else: 
-        coluna = int(coordenada[1]+coordenada[2])-1
+    coluna = int(coordenada[1])-1
     for k,v in d.items(): 
         if letra == k: 
             linha = v
@@ -190,11 +187,7 @@ def valida_coordenada(coordenada):
     if len(coordenada) == 2:
         if coordenada[0].upper() in 'ABCDEFGHIJ' and int(coordenada[1]) in range(1,11):
             return True 
-    if len(coordenada) == 3 and int(coordenada[1]) == 1 and int(coordenada[2]) == 0: 
-        if coordenada[0].upper() in 'ABCDEFGHIJ':
-            return True 
-    return False 
-
+        return False 
 
 def string(l):
     string=''
@@ -277,8 +270,7 @@ def foi_derrotado_comp(l):
 perg='sim'
 #JOGO EM SI 
 comp_pais = choice(Paises)
-t = True 
-while t:
+while True:
     i = 0 
     for s in mi: 
         if i == 0: 
@@ -306,6 +298,7 @@ while t:
     frota=int(frota)
     print(f"Você escolheu a nação {numeroparapais[frota]}\nAgora é sua vez de alocar seus navios de guerra!")
     lista = cria_mapa(10)
+
     naviosusuario=[]
     for a,b in PAISES[numeroparapais[frota]].items():
         for k in range(b):
@@ -328,7 +321,7 @@ while t:
             coordenada=coordenada.lower()
             if direção in 'vh':
                 if valida_coordenada(coordenada):
-                    if posicao_suporta_usu(mapausu, CONFIGURACAO[i], int(coordenada[1])-1, d[coordenada[0]], direção):
+                    if posicao_suporta_usu(mapausu, CONFIGURACAO[i], int(coordenada[1:])-1, d[coordenada[0]], direção):
                         coordenada = converte_coordenada(coordenada)
                         mapausu=aloca_navios_jo(mapausu, CONFIGURACAO[i], coordenada[1], coordenada[0],direção)
                         print(printa_string(lista, mapausu))
@@ -343,7 +336,7 @@ while t:
     for i in range(5,0,-1): 
         print(i)
         time.sleep(1)
-    while t:
+    while True:
         while True:
             linha = randint(0, len(mapausu) - 1)
             coluna = randint(0, len(mapausu[0]) - 1)
@@ -363,8 +356,6 @@ while t:
             print("Você perdeu!")
             perg = input("Quer jogar de novo? (Sim ou Não): ")
             perg = perg.lower()
-            if perg in ["não","nao"]: 
-                t = False 
             break
         while True:
             linha = input("Escolha uma Linha:")
@@ -392,7 +383,4 @@ while t:
             print("Você ganhou! Parabéns!")
             perg = input("Quer jogar de novo? (Sim ou Não): ")
             perg = perg.lower()
-            if perg in ["não","nao"]: 
-                t = False 
             break
-print("Obrigado por Jogar!")
