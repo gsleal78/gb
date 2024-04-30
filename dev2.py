@@ -267,7 +267,7 @@ def foi_derrotado_comp(l):
             if l[i][k] == 'N' :return False
     return True
 
-
+perg='sim'
 #JOGO EM SI 
 comp_pais = choice(Paises)
 while True:
@@ -303,14 +303,18 @@ while True:
     for a,b in PAISES[numeroparapais[frota]].items():
         for k in range(b):
             naviosusuario.append(a)
-    naviosusuario2=naviosusuario
+    naviosusuario2=[]
+    for i in naviosusuario:
+        naviosusuario2.append(i)
+    print(naviosusuario)
     del naviosusuario2[0]
     for i in naviosusuario:
         while True:
             time.sleep(1)
             print(f'alocar: {i} {CONFIGURACAO[i]} blocos')
             time.sleep(1)
-            print(f'próximos: {naviosusuario2}')
+            if naviosusuario2!=[]:
+                print(f'próximos: {naviosusuario2}')
             coordenada = input('Informe a coordenada exemplo(A1):')
             direção = input('Informe a Orientação [v|h]')
             direção=direção.lower()
@@ -321,6 +325,8 @@ while True:
                         coordenada = converte_coordenada(coordenada)
                         mapausu=aloca_navios_jo(mapausu, CONFIGURACAO[i], coordenada[1], coordenada[0],direção)
                         print(printa_string(lista, mapausu))
+                        if naviosusuario2!=[]:
+                            del naviosusuario2[0]
                         break
                     else:   print('Opção inválida')
                 else:   print('Opção inválida')
@@ -350,8 +356,7 @@ while True:
             print("Você perdeu!")
             perg = input("Quer jogar de novo? (Sim ou Não): ")
             perg = perg.lower()
-            if perg in ["não","nao"]:
-                break
+            break
         while True:
             print(mapacomp)
             linha = input("Escolha uma Linha:")
@@ -379,6 +384,4 @@ while True:
             print("Você ganhou! Parabéns!")
             perg = input("Quer jogar de novo? (Sim ou Não): ")
             perg = perg.lower()
-            if perg in ["não","nao"]:
-                break
             break
