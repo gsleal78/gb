@@ -386,5 +386,6 @@ while t:
             print("Você ganhou! Parabéns!")
             perg = input("Quer jogar de novo? (Sim ou Não): ")
             perg = perg.lower()
-            t = False
-            
+            if perg in ["não","nao"]: 
+                t = False 
+                break
