@@ -176,7 +176,10 @@ def verifica_stb(posicao):
     
 def converte_coordenada(coordenada):
     letra = coordenada[0].lower()
-    coluna = int(coordenada[1])-1
+    if len(coordenada) ==2: 
+        coluna = int(coordenada[1])-1
+    elif len(coordenada) == 3: 
+        coluna = int(coordenada[1]+coordenada[2])-1
     for k,v in d.items(): 
         if letra == k: 
             linha = v
@@ -188,7 +191,10 @@ def valida_coordenada(coordenada):
         if coordenada[0].upper() in 'ABCDEFGHIJ' and int(coordenada[1]) in range(1,11):
             return True 
         return False 
-
+    if len(coordenada) == 3 and int(coordenada[1]) == 1 and int(coordenada[2]) == 0: 
+        if coordenada[0].upper() in 'ABCDEFGHIJ':
+            return True 
+    return False 
 def string(l):
     string=''
     for i in l:
@@ -267,10 +273,11 @@ def foi_derrotado_comp(l):
             if l[i][k] == 'N' :return False
     return True
 
-perg='sim'
+
 #JOGO EM SI 
+t = True 
 comp_pais = choice(Paises)
-while True:
+while t:
     i = 0 
     for s in mi: 
         if i == 0: 
@@ -356,9 +363,10 @@ while True:
             print("Você perdeu!")
             perg = input("Quer jogar de novo? (Sim ou Não): ")
             perg = perg.lower()
+            if perg in ["não","nao"]:
+                t = False 
             break
         while True:
-            print(mapacomp)
             linha = input("Escolha uma Linha:")
             coluna = input("Escolha uma Letra:")
             if linha in listanumeros2 and coluna.lower() in letras:
@@ -384,4 +392,7 @@ while True:
             print("Você ganhou! Parabéns!")
             perg = input("Quer jogar de novo? (Sim ou Não): ")
             perg = perg.lower()
+            if perg in ["não","nao"]:
+                t = False 
             break
+print("Obrigado por jogar! =)")
