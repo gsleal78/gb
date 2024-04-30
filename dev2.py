@@ -358,6 +358,7 @@ while True:
             perg = perg.lower()
             break
         while True:
+            print(mapacomp)
             linha = input("Escolha uma Linha:")
             coluna = input("Escolha uma Letra:")
             if linha in listanumeros2 and coluna.lower() in letras:
