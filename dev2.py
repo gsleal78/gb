@@ -176,7 +176,10 @@ def verifica_stb(posicao):
     
 def converte_coordenada(coordenada):
     letra = coordenada[0].lower()
-    coluna = int(coordenada[1])-1
+    if len(coordenada) == 2: 
+        coluna = int(coordenada[1])-1
+    else: 
+        coluna = int(coordenada[1]+coordenada[2])-1
     for k,v in d.items(): 
         if letra == k: 
             linha = v
@@ -187,7 +190,11 @@ def valida_coordenada(coordenada):
     if len(coordenada) == 2:
         if coordenada[0].upper() in 'ABCDEFGHIJ' and int(coordenada[1]) in range(1,11):
             return True 
-        return False 
+    if len(coordenada) == 3 and int(coordenada[1]) == 1 and int(coordenada[2]) == 0: 
+        if coordenada[0].upper() in 'ABCDEFGHIJ':
+            return True 
+    return False 
+
 
 def string(l):
     string=''
@@ -299,7 +306,6 @@ while t:
     frota=int(frota)
     print(f"Você escolheu a nação {numeroparapais[frota]}\nAgora é sua vez de alocar seus navios de guerra!")
     lista = cria_mapa(10)
-    print(mapacomp)
     naviosusuario=[]
     for a,b in PAISES[numeroparapais[frota]].items():
         for k in range(b):
@@ -324,7 +330,7 @@ while t:
                 if valida_coordenada(coordenada):
                     if posicao_suporta_usu(mapausu, CONFIGURACAO[i], int(coordenada[1])-1, d[coordenada[0]], direção):
                         coordenada = converte_coordenada(coordenada)
-                        mapausu=aloca_navios_jo(mapausu, CONFIGURACAO[i], coordenada[1], coordenada[0],direção)
+                        mapausu=aloca_navios_jo(mapausu, CONFIGURACAO[i], coordenada[1]-1, coordenada[0],direção)
                         print(printa_string(lista, mapausu))
                         if naviosusuario2!=[]:
                             del naviosusuario2[0]
