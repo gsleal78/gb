@@ -61,8 +61,8 @@ PAISES =  {
     }
 }
 Paises = ["Brasil","França","Austrália","Rússia","Japão"]
-comp_pais = choice(Paises)
 
+comp_pais = choice(Paises)
 mensagem_inicial = f"""=======================================
 |                                     |
 |   Bem-vindo ao CAMPO DE GUERRA      |
@@ -269,107 +269,116 @@ def foi_derrotado_comp(l):
 
 
 #JOGO EM SI 
-i = 0 
-for s in mi: 
-    if i == 0: 
-        print(s)
-        i+=1 
-    else: 
-        time.sleep(1)        
-        print(s)
-mapausu = cria_mapa(10)
-mapacomp = cria_mapa(10)
-blocoscomp=[]
-for a,b in PAISES[comp_pais].items():
-    for i in range(b):
-        blocoscomp.append(CONFIGURACAO[a])
-mapacomp=aloca_navios(mapacomp,blocoscomp)
-        
+comp_pais = choice(Paises)
 while True:
-    frota = input("Qual o número da nação da sua frota?")
-    if frota in listanumeros:
-        break
-    else:
-        print("Opção inválida")
-        time.sleep(0.5)
-        print("Escolha uma opção válida")
-frota=int(frota)
-print(f"Você escolheu a nação {numeroparapais[frota]}\nAgora é sua vez de alocar seus navios de guerra!")
-lista = cria_mapa(10)
-
-naviosusuario=[]
-for a,b in PAISES[numeroparapais[frota]].items():
-    for k in range(b):
-        naviosusuario.append(a)
-naviosusuario2=naviosusuario
-del naviosusuario2[0]
-for i in naviosusuario:
+    i = 0 
+    for s in mi: 
+        if i == 0: 
+            print(s)
+            i+=1 
+        else: 
+            time.sleep(1)        
+            print(s)
+    mapausu = cria_mapa(10)
+    mapacomp = cria_mapa(10)
+    blocoscomp=[]
+    for a,b in PAISES[comp_pais].items():
+        for i in range(b):
+            blocoscomp.append(CONFIGURACAO[a])
+    mapacomp=aloca_navios(mapacomp,blocoscomp)
+            
     while True:
-        time.sleep(1)
-        print(f'alocar: {i} {CONFIGURACAO[i]} blocos')
-        time.sleep(1)
-        print(f'próximos: {naviosusuario2}')
-        coordenada = input('Informe a coordenada exemplo(A1):')
-        direção = input('Informe a Orientação [v|h]')
-        direção=direção.lower()
-        coordenada=coordenada.lower()
-        if direção in 'vh':
-            if valida_coordenada(coordenada):
-                if posicao_suporta_usu(mapausu, CONFIGURACAO[i], int(coordenada[1])-1, d[coordenada[0]], direção):
-                    coordenada = converte_coordenada(coordenada)
-                    mapausu=aloca_navios_jo(mapausu, CONFIGURACAO[i], coordenada[1], coordenada[0],direção)
-                    print(printa_string(lista, mapausu))
-                    break
+        frota = input("Qual o número da nação da sua frota?")
+        if frota in listanumeros:
+            break
+        else:
+            print("Opção inválida")
+            time.sleep(0.5)
+            print("Escolha uma opção válida")
+    frota=int(frota)
+    print(f"Você escolheu a nação {numeroparapais[frota]}\nAgora é sua vez de alocar seus navios de guerra!")
+    lista = cria_mapa(10)
+
+    naviosusuario=[]
+    for a,b in PAISES[numeroparapais[frota]].items():
+        for k in range(b):
+            naviosusuario.append(a)
+    naviosusuario2=naviosusuario
+    del naviosusuario2[0]
+    for i in naviosusuario:
+        while True:
+            time.sleep(1)
+            print(f'alocar: {i} {CONFIGURACAO[i]} blocos')
+            time.sleep(1)
+            print(f'próximos: {naviosusuario2}')
+            coordenada = input('Informe a coordenada exemplo(A1):')
+            direção = input('Informe a Orientação [v|h]')
+            direção=direção.lower()
+            coordenada=coordenada.lower()
+            if direção in 'vh':
+                if valida_coordenada(coordenada):
+                    if posicao_suporta_usu(mapausu, CONFIGURACAO[i], int(coordenada[1])-1, d[coordenada[0]], direção):
+                        coordenada = converte_coordenada(coordenada)
+                        mapausu=aloca_navios_jo(mapausu, CONFIGURACAO[i], coordenada[1], coordenada[0],direção)
+                        print(printa_string(lista, mapausu))
+                        break
+                    else:   print('Opção inválida')
                 else:   print('Opção inválida')
             else:   print('Opção inválida')
-        else:   print('Opção inválida')
-print("Iniciando Batalha naval!")
-i = 0 
-for i in range(5,0,-1): 
-    print(i)
-    time.sleep(1)
-while True:
+    print("Iniciando Batalha naval!")
+    i = 0 
+    for i in range(5,0,-1): 
+        print(i)
+        time.sleep(1)
     while True:
-        linha = randint(0, len(mapausu) - 1)
-        coluna = randint(0, len(mapausu[0]) - 1)
-        if mapausu[linha][coluna]=='   ':
-            mapausu[linha][coluna]='A'
-            x="Água"
-            break
-        elif mapausu[linha][coluna]=='\u001b[32m▓▓▓\u001b[0m':
-            mapausu[linha][coluna]='X'
-            x="Fogo"
-            break
-    print(f'Computador ----->>>>> {numeroparaletra[coluna]}{linha+1} {x}')
-    time.sleep(1)
-    print(printa_string_bombardeio(lista, mapausu, mapacomp))
-    time.sleep(1)
-    if foi_derrotado_usu(mapausu)==True:
-        print("Você perdeu!")
-        break
-    while True:
-        print(mapacomp)
-        linha = input("Escolha uma Linha:")
-        coluna = input("Escolha uma Letra:")
-        if linha in listanumeros2 and coluna.lower() in letras:
-            linha = int(linha)
-            if mapacomp[linha-1][d[coluna.lower()]]=='N':
-                lista[linha-1][d[coluna.lower()]]='X'
-                mapacomp[linha-1][d[coluna.lower()]] = "X"
-                x='Fogo'
+        while True:
+            linha = randint(0, len(mapausu) - 1)
+            coluna = randint(0, len(mapausu[0]) - 1)
+            if mapausu[linha][coluna]=='   ':
+                mapausu[linha][coluna]='A'
+                x="Água"
                 break
-            elif mapacomp[linha-1][d[coluna.lower()]]=='   ':
-                lista[linha-1][d[coluna.lower()]]='A'
-                x='Água'
-                mapacomp[linha-1][d[coluna.lower()]] ="A"
+            elif mapausu[linha][coluna]=='\u001b[32m▓▓▓\u001b[0m':
+                mapausu[linha][coluna]='X'
+                x="Fogo"
                 break
+        print(f'Computador ----->>>>> {numeroparaletra[coluna]}{linha+1} {x}')
+        time.sleep(1)
+        print(printa_string_bombardeio(lista, mapausu, mapacomp))
+        time.sleep(1)
+        if foi_derrotado_usu(mapausu)==True:
+            print("Você perdeu!")
+            perg = input("Quer jogar de novo? (Sim ou Não): ")
+            perg = perg.lower()
+            if perg in ["não","nao"]:
+                break
+        while True:
+            print(mapacomp)
+            linha = input("Escolha uma Linha:")
+            coluna = input("Escolha uma Letra:")
+            if linha in listanumeros2 and coluna.lower() in letras:
+                linha = int(linha)
+                if mapacomp[linha-1][d[coluna.lower()]]=='N':
+                    lista[linha-1][d[coluna.lower()]]='X'
+                    mapacomp[linha-1][d[coluna.lower()]] = "X"
+                    x='Fogo'
+                    break
+                elif mapacomp[linha-1][d[coluna.lower()]]=='   ':
+                    lista[linha-1][d[coluna.lower()]]='A'
+                    x='Água'
+                    mapacomp[linha-1][d[coluna.lower()]] ="A"
+                    break
+                else:
+                    print(f"Posição {coluna.upper()}{linha} já bombardeada!")
             else:
-                print(f"Posição {coluna.upper()}{linha} já bombardeada!")
-        else:
-            print('Opção inválida')
-    print(f'Jogador ----->>>>> {linha}{coluna} {x}')
-    time.sleep(1)
-    print(printa_string_bombardeio(lista, mapausu, mapacomp))
-    if foi_derrotado_comp(mapacomp)==True:
-        print("Você ganhou! Parabéns!")
-        break
+                print('Opção inválida')
+        print(f'Jogador ----->>>>> {linha}{coluna} {x}')
+        time.sleep(1)
+        print(printa_string_bombardeio(lista, mapausu, mapacomp))
+        if foi_derrotado_comp(mapacomp)==True:
+            print("Você ganhou! Parabéns!")
+            perg = input("Quer jogar de novo? (Sim ou Não): ")
+            perg = perg.lower()
+            if perg in ["não","nao"]:
+                break
+            break
